@@ -6,7 +6,7 @@ const emptyUser: User = {
     image: "https://as1.ftcdn.net/jpg/02/33/46/24/220_F_233462402_Fx1yke4ng4GA8TJikJZoiATrkncvW6Ib.jpg",
     name: "",
     profession: "",
-    uid:'',
+    uid:"",
 };
 
 export const userStore = create((set) => ({
@@ -61,7 +61,6 @@ export const userStore = create((set) => ({
         });
         const data = await res.json();
         if (res.ok) {
-            console.log({...data.data, ...updatedUser});
             set({user: {...data.data, ...updatedUser}});
             return { success: true, message: "User updated successfully" };
         } else {

@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button.tsx"
-import { Pencil } from 'lucide-react'
-import {User} from "@/types/user.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import {Pencil} from 'lucide-react';
 import {useToast} from "@/functions/use-toast.ts";
 import {getAuth} from "firebase/auth";
 import fireApp from "../../../firebase.tsx";
@@ -9,7 +8,8 @@ import {Input} from "@/components/ui/input.tsx";
 import {ChangeEvent, useRef} from "react";
 
 
-export default function ProfileHeader({user}: {user: User}) {
+export default function ProfileHeader({user, updateUser}:any) {
+
     const auth = getAuth(fireApp);
     const {toast} = useToast();
     const formData = new FormData();
@@ -23,6 +23,8 @@ export default function ProfileHeader({user}: {user: User}) {
                 toast({
                     title: result.title,
                 })
+                updateUser(user.uid, {image:`${import.meta.env.VITE_HOST}/uploads/${user.uid}/image.jpg`});
+                window.location.reload();
             } else {
                 toast({
                     variant: "destructive",
@@ -40,11 +42,17 @@ export default function ProfileHeader({user}: {user: User}) {
 
     return (
         <div className="relative">
-            <div className="h-32 bg-gray-300"></div>
+            <div className="h-32 bg-gray-300 overflow-hidden">
+                <img
+                    src={user.image}
+                    alt="Cover image"
+                    className="w-full h-full object-cover blur-lg filter"
+                />
+            </div>
             <div className="absolute top-16 left-6 flex items-end space-x-4">
                 <div className="relative">
                     <img
-                        src={`src/../../uploads/${auth.currentUser?.uid}/image.jpg`}
+                        src={user.image}
                         alt="Profile picture"
                         className="w-32 h-32 rounded-full border-4 border-white"
                     />
