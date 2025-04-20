@@ -22,6 +22,7 @@ import Scholarships from './pages/Scholarships.tsx';
 import Support from './pages/Support.tsx';
 import Feedback from './pages/Feedback.tsx';
 import News from './pages/News.tsx';
+import Homepage from './pages/Homepage.tsx';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
               <BrowserRouter>
                   <AuthNavigate />
                   <Routes>
+                      <Route path="/" element={<Homepage />} />
                       <Route path="/login" element={<AuthPage/>} />
                       <Route path="/addnewuni" element={<CreateUniversity/>} />
                       <Route path="/dashboard" element={<DashboardLayout/>}>

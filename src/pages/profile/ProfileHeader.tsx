@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button.tsx";
+import {Button} from "@/components/ui/button.tsx";
 import {Pencil} from 'lucide-react';
 import {useToast} from "@/functions/use-toast.ts";
 import {getAuth} from "firebase/auth";

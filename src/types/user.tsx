@@ -1,5 +1,5 @@
-import { Degree } from "./degree";
-import { WorkExperience } from "./work";
+import {Degree} from "./degree";
+import {WorkExperience} from "./work";
 
 export interface User {
     uid: string;

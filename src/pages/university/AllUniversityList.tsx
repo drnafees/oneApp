@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card.tsx"
 import { Badge } from "@/components/ui/badge.tsx"
 import { Checkbox } from "@/components/ui/checkbox.tsx"
-import placeholder from "/src/assets/university.png"
+import placeholder from "/src/assets/blank_university.png"
 
 // Mock data
 const allUniversityList = [
